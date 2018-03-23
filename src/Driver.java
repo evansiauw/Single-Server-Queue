@@ -15,23 +15,25 @@ import java.util.Random;
 public class Driver {
 
 	public static void main(String[] args) {
+		
 	    ArrayList<Job> jobs = new ArrayList<>();
 	    int numOfJobs = 1000;
 	    int numOfJobsCompleted = 0;
+	    int ArrivalTime = 0;
+	    int JobLength = 0;
+	    
 	    for(int i = 1; i <= numOfJobs; i++){
-	        Job j = new Job(i, i*13, 10); 
+	    	
+	    	 	// need function for expo arrival time
+		    // need function for expo job length
+	    	
+	        Job j = new Job(i,ArrivalTime, JobLength); 
 	        jobs.add(j);
 	    }
-	    int jobBeingServed = 1;
-	    while (numOfJobsCompleted != numOfJobs && jobBeingServed != 999){
-	        Job j = jobs.get(jobBeingServed-1);
-	        Random random = new Random();
-	        j.amountOfWork =- random.nextInt(5 - 1 + 1) + 1; // jobs are served for 1-5 ms
-	        if (j.amountOfWork <= 0){
-	            numOfJobsCompleted++;
-	            System.out.println("job " + j.jobNumber + " completed");
-	        }
-	        else jobBeingServed++;
+	    
+	    while (jobs.size() > 0){
+	    	
+	    		if()
 	    }
 
 	}
