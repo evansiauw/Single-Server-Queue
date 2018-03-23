@@ -18,7 +18,7 @@ public class Driver {
 	public static void main(String[] args) {
 		
 	    LinkedList<Job> jobList = new LinkedList<>();
-	    int numOfJobs = 1000;
+	    int numOfJobs = 10;
 	    int arrivalTime = 0;
 	    int time = 0;
 	    int meanLength = 10;
@@ -46,20 +46,21 @@ public class Driver {
 	    	
 	    		Job currentJob = jobList.getFirst();
 	    		if(currentJob.jobLength <= 5 || jobList.size() == 1) {
-	    			time +=5;
+	    			time += currentJob.jobLength;
 	    			System.out.println("Time: " + time + "ms" + ", Processing Job " + currentJob.jobNumber);
 	    			System.out.println("Job Length: " + currentJob.jobLength);
 	    			currentJob.jobLength -= currentJob.jobLength;
-	    			System.out.println("Jobs served");
+	    			System.out.println("Jobs served \n");
 	    			jobList.remove();
 	    			
 	    		}
 	    		else {
+	    			time +=5;
 	    			System.out.println("Time: " + time + "ms" + ", Processing Job " + currentJob.jobNumber);
 	    			System.out.println("Job Length: " + currentJob.jobLength);
 	    			currentJob.getService();
 	    			System.out.println("Job Length Remaining time: " + currentJob.jobLength);
-	    			System.out.println("Goes back to the end of the queue");
+	    			System.out.println("Goes back to the end of the queue\n");
 	    			jobList.addLast(currentJob);
 	    			jobList.removeFirst();
 	    		}
