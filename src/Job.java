@@ -8,4 +8,8 @@ public class Job {
         arrivalTime = aTime;
         jobLength = jLength;
     }
+    
+    public void getService() { 
+    	arrivalTime -= 5;
+    }
 }

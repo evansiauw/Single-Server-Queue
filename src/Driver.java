@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -36,7 +35,13 @@ public class Driver {
 	    while (jobs.size() > 0){
 	    	
 	    		Job currentJob = jobs.getFirst();
-	    		if(currentJob.jobLength <= 5);
+	    		if(currentJob.jobLength <= 5) {
+	    			jobs.remove();
+	    		}
+	    		else {
+	    			currentJob.getService();
+	    			
+	    		}
 	    		
 	    }
 
