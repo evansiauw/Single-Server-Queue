@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
 /* Jobs come into the system, arriving with an exponential interarrival time 
@@ -16,24 +17,27 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-	    ArrayList<Job> jobs = new ArrayList<>();
+	    LinkedList<Job> jobs = new LinkedList<>();
 	    int numOfJobs = 1000;
 	    int numOfJobsCompleted = 0;
-	    int ArrivalTime = 0;
-	    int JobLength = 0;
+	    int arrivalTime = 0;
+	    int jobLength = 0;
+	    int serviceTime = 5;
 	    
 	    for(int i = 1; i <= numOfJobs; i++){
 	    	
 	    	 	// need function for expo arrival time
 		    // need function for expo job length
 	    	
-	        Job j = new Job(i,ArrivalTime, JobLength); 
+	        Job j = new Job(i,arrivalTime, jobLength); 
 	        jobs.add(j);
 	    }
 	    
 	    while (jobs.size() > 0){
 	    	
-	    		if()
+	    		Job currentJob = jobs.getFirst();
+	    		if(currentJob.jobLength <= 5);
+	    		
 	    }
 
 	}
