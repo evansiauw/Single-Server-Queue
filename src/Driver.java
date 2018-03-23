@@ -18,9 +18,9 @@ public class Driver {
 	public static void main(String[] args) {
 		
 	    LinkedList<Job> jobList = new LinkedList<>();
-	    int numOfJobs = 10;
+	    int numOfJobs = 1000;
 	    int arrivalTime = 0;
-	    int time = 0;
+	    double time = 0;
 	    int meanLength = 10;
 	    int meanArrival = 13;
 	    
@@ -46,8 +46,8 @@ public class Driver {
 	    	
 	    		Job currentJob = jobList.getFirst();
 	    		if(currentJob.jobLength <= 5 || jobList.size() == 1) {
+	    			System.out.println("Time: " + time/1000 + " second" + ", Processing Job " + currentJob.jobNumber);
 	    			time += currentJob.jobLength;
-	    			System.out.println("Time: " + time + "ms" + ", Processing Job " + currentJob.jobNumber);
 	    			System.out.println("Job Length: " + currentJob.jobLength);
 	    			currentJob.jobLength -= currentJob.jobLength;
 	    			System.out.println("Jobs served \n");
@@ -55,8 +55,8 @@ public class Driver {
 	    			
 	    		}
 	    		else {
+	    			System.out.println("Time: " + time/1000 + " second" + ", Processing Job " + currentJob.jobNumber);
 	    			time +=5;
-	    			System.out.println("Time: " + time + "ms" + ", Processing Job " + currentJob.jobNumber);
 	    			System.out.println("Job Length: " + currentJob.jobLength);
 	    			currentJob.getService();
 	    			System.out.println("Job Length Remaining time: " + currentJob.jobLength);
