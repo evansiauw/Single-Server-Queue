@@ -18,7 +18,7 @@ public class Driver {
 	public static void main(String[] args) {
 		
 	    LinkedList<Job> jobList = new LinkedList<>();
-	    int numOfJobs = 50;
+	    int numOfJobs = 1000;
 	    int arrivalTime = 0;
 	    double time = 0;
 	    int meanLength = 10;
@@ -34,9 +34,6 @@ public class Driver {
 
 	    	 	int interArrival = (int) (meanArrival *(-Math.log(randomValue2)));
 	    	 	int jobLength = (int) (meanLength *(-Math.log(randomValue1)) );
-	    	 	
-	    	 	System.out.println("Arrival: " + interArrival);
-	    	 	System.out.println("jobLength: " + jobLength + "\n");
 	    	 	
 	    	 	if(i == 0) {
 	    	 		arrivalTime += interArrival;
