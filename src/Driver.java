@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Random;
+import java.lang.Math;
 
 /* Jobs come into the system, arriving with an exponential interarrival time 
  * (mean 13 milliseconds) , and have an exponential amount of work with 
@@ -18,29 +19,47 @@ public class Driver {
 		
 	    LinkedList<Job> jobList = new LinkedList<>();
 	    int numOfJobs = 1000;
-	    int arrivalTime = 7;
-	    int jobLength = 7;
+	    int arrivalTime = 0;
 	    int time = 0;
+	    int meanLength = 10;
+	    int meanArrival = 13;
 	    
 	    Job [] Jobs = new Job[numOfJobs];
 	    
 	    for(int i = 0; i < numOfJobs; i++){
 	    	
-	    	 	// need function for expo arrival time
-		    // need function for expo job length
-	    	
-	        Jobs [i] = new Job(i,arrivalTime,jobLength); 
-	        jobList.add(Jobs[i]);
+	    	 	int interArrival = (int) (meanArrival *(-Math.log(Math.random()))) + 1;
+	    	 	int jobLength = (int) (meanLength *(-Math.log(Math.random())) ) + 1;
+	    	 	
+	    	 	if(i == 0) {
+	    	 		arrivalTime += interArrival;
+	    		    Jobs [i] = new Job(i,arrivalTime,jobLength); 
+	    		    jobList.add(Jobs[i]);
+	    	 	} else {
+	    	 		arrivalTime = jobList.getFirst().arrivalTime + interArrival;
+	    		    Jobs [i] = new Job(i,arrivalTime,jobLength); 
+	    		    jobList.add(Jobs[i]);
+	    	 	}
 	    }
 	    
 	    while (jobList.size() > 0){
 	    	
 	    		Job currentJob = jobList.getFirst();
 	    		if(currentJob.jobLength <= 5 || jobList.size() == 1) {
+	    			time +=5;
+	    			System.out.println("Time: " + time + "ms" + ", Processing Job " + currentJob.jobNumber);
+	    			System.out.println("Job Length: " + currentJob.jobLength);
+	    			currentJob.jobLength -= currentJob.jobLength;
+	    			System.out.println("Jobs served");
 	    			jobList.remove();
+	    			
 	    		}
 	    		else {
+	    			System.out.println("Time: " + time + "ms" + ", Processing Job " + currentJob.jobNumber);
+	    			System.out.println("Job Length: " + currentJob.jobLength);
 	    			currentJob.getService();
+	    			System.out.println("Job Length Remaining time: " + currentJob.jobLength);
+	    			System.out.println("Goes back to the end of the queue");
 	    			jobList.addLast(currentJob);
 	    			jobList.removeFirst();
 	    		}
