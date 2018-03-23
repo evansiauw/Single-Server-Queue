@@ -19,8 +19,8 @@ public class Driver {
 	    LinkedList<Job> jobs = new LinkedList<>();
 	    int numOfJobs = 1000;
 	    int numOfJobsCompleted = 0;
-	    int arrivalTime = 0;
-	    int jobLength = 0;
+	    int arrivalTime = 7;
+	    int jobLength = 7;
 	    int serviceTime = 5;
 	    
 	    for(int i = 1; i <= numOfJobs; i++){
@@ -40,7 +40,8 @@ public class Driver {
 	    		}
 	    		else {
 	    			currentJob.getService();
-	    			
+	    			jobs.addLast(currentJob);
+	    			jobs.removeFirst();
 	    		}
 	    		
 	    }
