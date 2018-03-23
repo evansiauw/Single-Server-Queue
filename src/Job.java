@@ -12,4 +12,5 @@ public class Job {
     public void getService() { 
     	jobLength -= 5;
     }
+    
 }

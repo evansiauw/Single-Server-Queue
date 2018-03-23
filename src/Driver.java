@@ -17,11 +17,10 @@ public class Driver {
 	public static void main(String[] args) {
 		
 	    LinkedList<Job> jobList = new LinkedList<>();
-	    int numOfJobs = 10;
-	    int numOfJobsCompleted = 0;
+	    int numOfJobs = 1000;
 	    int arrivalTime = 7;
 	    int jobLength = 7;
-	    int serviceTime = 5;
+	    int time = 0;
 	    
 	    Job [] Jobs = new Job[numOfJobs];
 	    
@@ -30,7 +29,7 @@ public class Driver {
 	    	 	// need function for expo arrival time
 		    // need function for expo job length
 	    	
-	        Jobs [i] = new Job(i,arrivalTime, jobLength); 
+	        Jobs [i] = new Job(i,arrivalTime,jobLength); 
 	        jobList.add(Jobs[i]);
 	    }
 	    
