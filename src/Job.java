@@ -10,6 +10,6 @@ public class Job {
     }
     
     public void getService() { 
-    	arrivalTime -= 5;
+    	jobLength -= 5;
     }
 }
