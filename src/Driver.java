@@ -16,32 +16,34 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-	    LinkedList<Job> jobs = new LinkedList<>();
-	    int numOfJobs = 1000;
+	    LinkedList<Job> jobList = new LinkedList<>();
+	    int numOfJobs = 10;
 	    int numOfJobsCompleted = 0;
 	    int arrivalTime = 7;
 	    int jobLength = 7;
 	    int serviceTime = 5;
 	    
-	    for(int i = 1; i <= numOfJobs; i++){
+	    Job [] Jobs = new Job[numOfJobs];
+	    
+	    for(int i = 0; i < numOfJobs; i++){
 	    	
 	    	 	// need function for expo arrival time
 		    // need function for expo job length
 	    	
-	        Job j = new Job(i,arrivalTime, jobLength); 
-	        jobs.add(j);
+	        Jobs [i] = new Job(i,arrivalTime, jobLength); 
+	        jobList.add(Jobs[i]);
 	    }
 	    
-	    while (jobs.size() > 0){
+	    while (jobList.size() > 0){
 	    	
-	    		Job currentJob = jobs.getFirst();
-	    		if(currentJob.jobLength <= 5) {
-	    			jobs.remove();
+	    		Job currentJob = jobList.getFirst();
+	    		if(currentJob.jobLength <= 5 || jobList.size() == 1) {
+	    			jobList.remove();
 	    		}
 	    		else {
 	    			currentJob.getService();
-	    			jobs.addLast(currentJob);
-	    			jobs.removeFirst();
+	    			jobList.addLast(currentJob);
+	    			jobList.removeFirst();
 	    		}
 	    		
 	    }
