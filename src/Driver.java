@@ -2,15 +2,17 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.lang.Math;
 
-/* Jobs come into the system, arriving with an exponential interarrival time 
- * (mean 13 milliseconds) , and have an exponential amount of work with 
- * a mean of 10 milliseconds. They wait their turn for service in FCFS order. 
- * Once they have the attention of the server, they are served 
- * but for not more than 5 milliseconds. If their required work is not completed 
- * they go to the back of the jobs waiting for service. 
-
- * Run the system for 100 seconds. 
- * Output the amount of time until completion for each 1000 jobs.
+/* Single Queue With Feedback
+ * 
+ * Joshua Goldstein, Iwan Siauw, Orlando Calle
+ * 
+ * This program simulates jobs service in a FCFS order
+ *
+ * 1. The total number of jobs to serve is 1000.
+ * 2. Jobs comes to the system with an exponential time of (mean 13 milliseconds).
+ * 3. Each job has a limited service time of at most 5 milliseconds. Otherwise, if the job is not complete
+ *    they go back to the queue.
+ * 
 */
 
 public class Driver {
