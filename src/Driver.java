@@ -19,8 +19,8 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-	    LinkedList<Job> jobList = new LinkedList<>();
-	    int numOfJobs = 1000;
+	    LinkedList<Job> jobQueue = new LinkedList<>();
+	    int numOfJobs = 100;
 	    int arrivalTime = 0;
 	    double time = 0;
 	    int meanLength = 10;
@@ -28,48 +28,57 @@ public class Driver {
 	    
 	    Job [] Jobs = new Job[numOfJobs];
 	    
-	    for(int i = 0; i < numOfJobs; i++){
-	    	
-	    		Random rand = new Random();
-	    		double randomValue1 = 0.3 + (0.5 - 0.3) * rand.nextDouble();
-	    		double randomValue2 = 0.22 + (0.37 - 0.22) * rand.nextDouble();
+        Random rand = new Random();
+	    
+        //for each job 
+	    for(int jobNum = 0; jobNum < numOfJobs; jobNum++){
+	   
+	        // generating a random number between 0.3 and 0.5 since we want the
+	        // job length to have a mean of 10 milliseconds
+    		double randomValueJobLength = 0.3 + (0.5 - 0.3) * rand.nextDouble(); 
+    		
+    		// generating a random number between 0.22 and 0.37 since we want the
+    		// interarrival time with a mean of 13 millisconds
+    		double randomValueInterArrival = 0.22 + (0.37 - 0.22) * rand.nextDouble(); 
 
-	    	 	int interArrival = (int) (meanArrival *(-Math.log(randomValue2)));
-	    	 	int jobLength = (int) (meanLength *(-Math.log(randomValue1)) );
-	    	 	
-	    	 	if(i == 0) {
-	    	 		arrivalTime += interArrival;
-	    		    Jobs [i] = new Job(i,arrivalTime,jobLength); 
-	    		    jobList.add(Jobs[i]);
-	    	 	} else {
-	    	 		arrivalTime = jobList.getFirst().arrivalTime + interArrival;
-	    		    Jobs [i] = new Job(i,arrivalTime,jobLength); 
-	    		    jobList.add(Jobs[i]);
-	    	 	}
+    		// calculating interarrival time and job length based on previous computed random values
+    	 	int interArrival = (int) (meanArrival *(-Math.log(randomValueInterArrival)));
+    	 	int jobLength = (int) (meanLength *(-Math.log(randomValueJobLength)) );
+    	 	
+    	 	// add jobs to job queue
+	 	    if (jobNum == 0) arrivalTime += interArrival; // for the first job
+	 	    else arrivalTime = jobQueue.getFirst().arrivalTime + interArrival; // for all other jobs
+		    Jobs [jobNum] = new Job(jobNum,arrivalTime,jobLength); 
+		    jobQueue.add(Jobs[jobNum]);
+    	 	
 	    }
 	    
-	    while (jobList.size() > 0){
+	    // keep serving jobs as long as there are jobs to be served in the list
+	    while (jobQueue.size() > 0){
 	    	
-	    		Job currentJob = jobList.getFirst();
-	    		if(currentJob.jobLength <= 5 || jobList.size() == 1) {
-	    			System.out.println("Time: " + time/1000 + " second" + ", Processing Job " + currentJob.jobNumber);
-	    			time += currentJob.jobLength;
-	    			System.out.println("Job Length: " + currentJob.jobLength);
-	    			currentJob.jobLength -= currentJob.jobLength;
-	    			System.out.println("Jobs served \n");
-	    			jobList.remove();
-	    			
-	    		}
-	    		else {
-	    			System.out.println("Time: " + time/1000 + " second" + ", Processing Job " + currentJob.jobNumber);
-	    			time +=5;
-	    			System.out.println("Job Length: " + currentJob.jobLength);
-	    			currentJob.getService();
-	    			System.out.println("Job Length Remaining time: " + currentJob.jobLength);
-	    			System.out.println("Goes back to the end of the queue\n");
-	    			jobList.addLast(currentJob);
-	    			jobList.removeFirst();
-	    		}
+    		Job currentJob = jobQueue.getFirst(); //get the job at the beginning of the list (FCFS)
+    		
+    		//output this if job is done being served
+    		if(currentJob.jobLength <= 5 || jobQueue.size() == 1) {
+    			System.out.println("Time: " + time + " milliseconds" + ", Processing Job " + currentJob.jobNumber);
+    			time += currentJob.jobLength;
+    			System.out.println("Job Length: " + currentJob.jobLength);
+    			currentJob.jobLength -= currentJob.jobLength;
+    			System.out.println("Jobs served \n");
+    			jobQueue.remove();
+    			
+    		}
+    		//output this if job is not being done served
+    		else {
+    			System.out.println("Time: " + time + " milliseconds" + ", Processing Job " + currentJob.jobNumber);
+    			time +=5;
+    			System.out.println("Job Length: " + currentJob.jobLength);
+    			currentJob.getService();
+    			System.out.println("Job Length Remaining time: " + currentJob.jobLength);
+    			System.out.println("Goes back to the end of the queue\n");
+    			jobQueue.addLast(currentJob);
+    			jobQueue.removeFirst();
+    		}
 	    		
 	    }
 
