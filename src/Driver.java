@@ -20,72 +20,71 @@ public class Driver {
 	public static void main(String[] args) {
 		
 	    LinkedList<Job> jobQueue = new LinkedList<>();
-	    int numOfJobs = 200;
+	    int numOfJobs = 1000;
 	    int arrivalTime = 0;
 	    double time = 0;
 	    int meanLength = 10;
 	    int meanArrival = 13;
-	    
-	    Job [] Jobs = new Job[numOfJobs];
+	    int jobNum =0;
+	    int count=0;
 	    
         Random rand = new Random();
 	    
-        //for each job 
-	    for(int jobNum = 0; jobNum < numOfJobs; jobNum++){
-	        // generating a random number between 0.3 and 0.5 since we want the
-	        // job length to have a mean of 10 milliseconds
-    		double randomValueJobLength = 0.3 + (0.5 - 0.3) * rand.nextDouble(); 
-    		
-    		// generating a random number between 0.22 and 0.37 since we want the
-    		// interarrival time with a mean of 13 millisconds
-    		double randomValueInterArrival = 0.22 + (0.37 - 0.22) * rand.nextDouble(); 
+        
+    	 	while (count <= numOfJobs){
+    	 		
+    		    	jobNum++;
+    	 		double randomValueJobLength = 0.3 + (0.2) * rand.nextDouble(); 
+    	 	    	double randomValueInterArrival = 0.22 + (0.15) * rand.nextDouble(); 
 
-    		// calculating interarrival time and job length based on previous computed random values
-    	 	int interArrival = (int) (meanArrival *(-Math.log(randomValueInterArrival)));
-    	 	int jobLength = (int) (meanLength *(-Math.log(randomValueJobLength)) );
+    	 	    	int interArrival = (int) (meanArrival *(-Math.log(randomValueInterArrival)));
+    	 	    	int jobLength = (int) (meanLength *(-Math.log(randomValueJobLength)));
+    	 		
+    	 	    	// Checking if this is the first job that arrives, so arrival time is 0
+    	 	    	if (jobQueue.size()==0) { 
+    	 	  		arrivalTime += arrivalTime;
+    	 	    	}
+    	 	    	else{ // arrival time of the next job would be the arrival time of the previous job
+    	 	    		  // plus the interarrival time
+    	 	   	 	arrivalTime = jobQueue.getLast().arrivalTime + interArrival;
+    	 	    	}
+    	 	    	
+    	 	    	// Creating new object and add them to the LinkedList
+    	 	    	Job next = new Job(jobNum,arrivalTime,jobLength);
+    	 	    	jobQueue.add(next);	
+    	 	    	
+    	 	    	// Advance from the current time to the next arrival time
+    	 	    	while (time < jobQueue.getFirst().arrivalTime) {
+    	 	    		time++;
+    	 	    		// Displaying how many job has been served at 1 second
+    	 	    		if(time == 1000) {
+        	    			System.out.println("Number of Jobs has beeen completed at 1 second is: " + count);
+        	    		}
+    	 	    	}
+    	 	    	
+    	 	    	// If the current job length is less than 5, advance time and remove job from the Queue
+    	 	    	// Increase the counter to keep track how many jobs has been completed
+    	    		if(jobQueue.getFirst().jobLength <= 5 || count == numOfJobs) {
+    	    			time += jobQueue.getFirst().jobLength;
+    	    			jobQueue.getFirst().jobLength -= jobQueue.getFirst().jobLength;
+    	    			jobQueue.remove();
+    	    			count++;
+    	    		}
+    	    		else {// If the current job length is greater than 5, subtract job length by 5
+    	    			  // and add them to the back of the Queue
+    	    			time +=5;
+    	    			jobQueue.getFirst().getService();
+    	    			jobQueue.addLast(jobQueue.getFirst());
+    	    			jobQueue.removeFirst();
+    	    			
+    	    		}
+    	    		
+	    }
     	 	
-    	 	// add jobs to job queue
-	 	    if (jobNum == 0) arrivalTime += interArrival; // for the first job
-	 	    else arrivalTime = jobQueue.getFirst().arrivalTime + interArrival; // for all other jobs
-		    Jobs [jobNum] = new Job(jobNum,arrivalTime,jobLength); 
-		    jobQueue.add(Jobs[jobNum]);
-		    
-    	 	
+    		System.out.println("Completion job for " + numOfJobs + " jobs is: " + (time/1000));
+ 	  
+
 	    }
 	    
-	    int counter = 0;
-	    // keep serving jobs as long as there are jobs to be served in the list
-	    while (jobQueue.size() > 0){
-	    	
-    		Job currentJob = jobQueue.getFirst(); //get the job at the beginning of the list (FCFS)
-    		counter++;
-    		//output this if job is done being served
-    		if(currentJob.jobLength <= 5 || jobQueue.size() == 1) {
-    			time += currentJob.jobLength;
-    			currentJob.jobLength -= currentJob.jobLength;
-    			jobQueue.remove();
-    			
-    		}
-    		//output this if job is not being done served
-    		else {
-    			time +=5;
-    			currentJob.getService();
-    			jobQueue.addLast(currentJob);
-    			jobQueue.removeFirst();
-    			//counter--;
-    		}
-    		  
-    		
-    		if(time == 1000) {
-    			System.out.println(time);
-    			System.out.println(counter);
-    		}
-
-	    }
-	    
-	    System.out.println(numOfJobs + " Jobs completed in " + time/1000 + " second");
-	    	System.out.println(counter);	
-
 	}
 
-}
