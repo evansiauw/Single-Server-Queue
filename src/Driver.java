@@ -34,11 +34,9 @@ public class Driver {
     	 	while (count <= numOfJobs){
     	 		
     		    	jobNum++;
-    	 		double randomValueJobLength = 0.3 + (0.2) * rand.nextDouble(); 
-    	 	    	double randomValueInterArrival = 0.22 + (0.15) * rand.nextDouble(); 
 
-    	 	    	int interArrival = (int) (meanArrival *(-Math.log(randomValueInterArrival)));
-    	 	    	int jobLength = (int) (meanLength *(-Math.log(randomValueJobLength)));
+    	 	    	int interArrival = (int) (meanArrival *(-Math.log(1- rand.nextDouble())));
+    	 	    	int jobLength = (int) (meanLength *(-Math.log(1 - rand.nextDouble())));
     	 		
     	 	    	// Checking if this is the first job that arrives, so arrival time is 0
     	 	    	if (jobQueue.size()==0) { 
