@@ -54,10 +54,6 @@ public class Driver {
     	 	    	// Advance from the current time to the next arrival time
     	 	    	while (time < jobQueue.getFirst().arrivalTime) {
     	 	    		time++;
-    	 	    		// Displaying how many job has been served at 1 second
-    	 	    		if(time == 1000) {
-        	    			System.out.println("Number of Jobs has beeen completed at 1 second is: " + count);
-        	    		}
     	 	    	}
     	 	    	
     	 	    	// If the current job length is less than 5, advance time and remove job from the Queue
@@ -79,7 +75,7 @@ public class Driver {
     	    		
 	    }
     	 	
-    		System.out.println("Completion job for " + numOfJobs + " jobs is: " + (time/1000));
+    		System.out.println("Completion time for " + numOfJobs + " jobs is: " + (time/1000));
  	  
 
 	    }
