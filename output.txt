@@ -1,21 +1,103 @@
-Completion time for 100 jobs is: 0.891
-
-Completion time for 200 jobs is: 1.921
-
-Completion time for 300 jobs is: 2.693
-
-Completion time for 400 jobs is: 3.87
-
-Completion time for 500 jobs is: 4.669
-
-Completion time for 600 jobs is: 5.663
-
-Completion time for 700 jobs is: 6.723
-
-Completion time for 800 jobs is: 7.155
-
-Completion time for 900 jobs is: 8.256
-
-Completion time for 1000 jobs is: 8.845
+Job 1 arrival time: 0, job length: 2, clock time: 2.0
+Job 2 arrival time: 0, job length: 22, clock time: 7.0
+Job 3 arrival time: 0, job length: 1, clock time: 12.0
+Job 4 arrival time: 33, job length: 2, clock time: 13.0
+Job 5 arrival time: 38, job length: 1, clock time: 18.0
+Job 6 arrival time: 26, job length: 28, clock time: 35.0
+Job 7 arrival time: 46, job length: 9, clock time: 39.0
+Job 8 arrival time: 46, job length: 11, clock time: 44.0
+Job 9 arrival time: 33, job length: 6, clock time: 49.0
+Job 10 arrival time: 33, job length: 3, clock time: 54.0
+Job 11 arrival time: 83, job length: 3, clock time: 59.0
+Job 12 arrival time: 57, job length: 15, clock time: 61.0
+Job 13 arrival time: 58, job length: 8, clock time: 66.0
+Job 14 arrival time: 48, job length: 13, clock time: 71.0
+Job 15 arrival time: 40, job length: 22, clock time: 74.0
+Job 16 arrival time: 50, job length: 2, clock time: 78.0
+Job 17 arrival time: 55, job length: 7, clock time: 86.0
+Job 18 arrival time: 68, job length: 13, clock time: 91.0
+Job 19 arrival time: 56, job length: 27, clock time: 96.0
+Job 20 arrival time: 108, job length: 7, clock time: 101.0
+Job 21 arrival time: 63, job length: 6, clock time: 102.0
+Job 22 arrival time: 76, job length: 32, clock time: 107.0
+Job 23 arrival time: 67, job length: 26, clock time: 112.0
+Job 24 arrival time: 59, job length: 14, clock time: 117.0
+Job 25 arrival time: 41, job length: 2, clock time: 119.0
+Job 26 arrival time: 45, job length: 11, clock time: 124.0
+Job 27 arrival time: 60, job length: 5, clock time: 129.0
+Job 28 arrival time: 71, job length: 6, clock time: 130.0
+Job 29 arrival time: 71, job length: 15, clock time: 135.0
+Job 30 arrival time: 80, job length: 1, clock time: 140.0
+Job 31 arrival time: 64, job length: 16, clock time: 145.0
+Job 32 arrival time: 112, job length: 3, clock time: 148.0
+Job 33 arrival time: 149, job length: 0, clock time: 153.0
+Job 34 arrival time: 73, job length: 4, clock time: 158.0
+Job 35 arrival time: 94, job length: 2, clock time: 163.0
+Job 36 arrival time: 50, job length: 2, clock time: 168.0
+Job 37 arrival time: 73, job length: 4, clock time: 173.0
+Job 38 arrival time: 33, job length: 6, clock time: 178.0
+Job 39 arrival time: 59, job length: 8, clock time: 183.0
+Job 40 arrival time: 46, job length: 15, clock time: 185.0
+Job 41 arrival time: 59, job length: 5, clock time: 190.0
+Job 42 arrival time: 58, job length: 2, clock time: 192.0
+Job 43 arrival time: 77, job length: 11, clock time: 197.0
+Job 44 arrival time: 162, job length: 5, clock time: 202.0
+Job 45 arrival time: 84, job length: 5, clock time: 207.0
+Job 46 arrival time: 79, job length: 6, clock time: 212.0
+Job 47 arrival time: 83, job length: 0, clock time: 217.0
+Job 48 arrival time: 59, job length: 13, clock time: 218.0
+Job 49 arrival time: 69, job length: 11, clock time: 223.0
+Job 50 arrival time: 82, job length: 7, clock time: 228.0
+Job 51 arrival time: 73, job length: 8, clock time: 230.0
+Job 52 arrival time: 94, job length: 20, clock time: 233.0
+Job 53 arrival time: 109, job length: 0, clock time: 233.0
+Job 54 arrival time: 133, job length: 2, clock time: 234.0
+Job 55 arrival time: 136, job length: 8, clock time: 238.0
+Job 56 arrival time: 138, job length: 9, clock time: 243.0
+Job 57 arrival time: 88, job length: 0, clock time: 245.0
+Job 58 arrival time: 114, job length: 17, clock time: 248.0
+Job 59 arrival time: 122, job length: 6, clock time: 250.0
+Job 60 arrival time: 136, job length: 1, clock time: 255.0
+Job 61 arrival time: 84, job length: 11, clock time: 259.0
+Job 62 arrival time: 113, job length: 3, clock time: 264.0
+Job 63 arrival time: 45, job length: 10, clock time: 269.0
+Job 64 arrival time: 51, job length: 21, clock time: 274.0
+Job 65 arrival time: 78, job length: 15, clock time: 279.0
+Job 66 arrival time: 70, job length: 0, clock time: 284.0
+Job 67 arrival time: 102, job length: 7, clock time: 289.0
+Job 68 arrival time: 62, job length: 8, clock time: 294.0
+Job 69 arrival time: 62, job length: 13, clock time: 299.0
+Job 70 arrival time: 102, job length: 4, clock time: 301.0
+Job 71 arrival time: 118, job length: 7, clock time: 306.0
+Job 72 arrival time: 86, job length: 2, clock time: 311.0
+Job 73 arrival time: 95, job length: 14, clock time: 314.0
+Job 74 arrival time: 115, job length: 0, clock time: 319.0
+Job 75 arrival time: 124, job length: 3, clock time: 320.0
+Job 76 arrival time: 135, job length: 0, clock time: 325.0
+Job 77 arrival time: 82, job length: 33, clock time: 330.0
+Job 78 arrival time: 71, job length: 3, clock time: 330.0
+Job 79 arrival time: 76, job length: 26, clock time: 335.0
+Job 80 arrival time: 77, job length: 17, clock time: 340.0
+Job 81 arrival time: 88, job length: 1, clock time: 345.0
+Job 82 arrival time: 73, job length: 2, clock time: 350.0
+Job 83 arrival time: 103, job length: 39, clock time: 355.0
+Job 84 arrival time: 64, job length: 1, clock time: 360.0
+Job 85 arrival time: 79, job length: 0, clock time: 365.0
+Job 86 arrival time: 105, job length: 2, clock time: 365.0
+Job 87 arrival time: 124, job length: 5, clock time: 367.0
+Job 88 arrival time: 141, job length: 3, clock time: 372.0
+Job 89 arrival time: 148, job length: 4, clock time: 377.0
+Job 90 arrival time: 147, job length: 26, clock time: 382.0
+Job 91 arrival time: 76, job length: 12, clock time: 382.0
+Job 92 arrival time: 104, job length: 6, clock time: 387.0
+Job 93 arrival time: 133, job length: 2, clock time: 392.0
+Job 94 arrival time: 125, job length: 20, clock time: 393.0
+Job 95 arrival time: 135, job length: 1, clock time: 398.0
+Job 96 arrival time: 92, job length: 8, clock time: 403.0
+Job 97 arrival time: 98, job length: 6, clock time: 406.0
+Job 98 arrival time: 121, job length: 2, clock time: 409.0
+Job 99 arrival time: 143, job length: 2, clock time: 414.0
+Job 100 arrival time: 46, job length: 4, clock time: 415.0
+Completion time for 1000 jobs is: 3.921
 
 
