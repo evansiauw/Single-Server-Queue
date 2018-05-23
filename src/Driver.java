@@ -20,7 +20,7 @@ public class Driver {
 	public static void main(String[] args) {
 		
 	    LinkedList<Job> jobQueue = new LinkedList<>();
-	    int numOfJobs = 1000;
+	    int numOfJobs = 100;
 	    int arrivalTime = 0;
 	    double time = 0;
 	    int meanLength = 10;
@@ -47,6 +47,8 @@ public class Driver {
     	 	   	 	arrivalTime = jobQueue.getLast().arrivalTime + interArrival;
     	 	    	}
     	 	    	
+    	 	    	
+    	 	    	
     	 	    	// Creating new object and add them to the LinkedList
     	 	    	Job next = new Job(jobNum,arrivalTime,jobLength);
     	 	    	jobQueue.add(next);	
@@ -72,6 +74,7 @@ public class Driver {
     	    			jobQueue.removeFirst();
     	    			
     	    		}
+    	    		System.out.println("Job "+jobNum+" arrival time: "+arrivalTime+", job length: "+jobLength+", clock time: "+time);
     	    		
 	    }
     	 	
