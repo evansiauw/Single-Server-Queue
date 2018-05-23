@@ -8,7 +8,7 @@ import java.lang.Math;
  * 
  * This program simulates jobs service in a FCFS order
  *
- * 1. The total number of jobs to serve is 1000.
+ * 1. The total number of jobs to serve is 100.
  * 2. Jobs comes to the system with an exponential time of (mean 13 milliseconds).
  * 3. Each job has a limited service time of at most 5 milliseconds. Otherwise, if the job is not complete
  *    they go back to the queue.
